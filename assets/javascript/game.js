@@ -8,17 +8,19 @@ var baseballTeam = ["chicago cubs", "los angeles dodgers", "new york yankess", "
 	"tampa bay rays"];
 
 var started = false;
-var word = "";
+var currentWord = "", wins = 0, tries = 0, guessesRemaining = 10;
+var lettersGuessed = [];
+
 
 function displayPattern(team){
-	word = team[Math.floor(Math.random() * team.length)];
+	currentWord = team[Math.floor(Math.random() * team.length)];
 	var ul = document.createElement("ul");
 
-	alert(word);
+	alert(currentWord);
 
-	for(var i = 0; i < word.length; i++){
+	for(var i = 0; i < currentWord.length; i++){
 		var li = document.createElement("li");
-		if(word[i] != " "){
+		if(currentWord[i] != " "){
 			li.innerHTML = "_";
 		} else{
 			li.innerHTML = "-";
@@ -34,18 +36,23 @@ function displayPattern(team){
  		started = true;
  		displayPattern(baseballTeam);
  	} else{
- 		var ul = document.getElementById("pattern");
- 		var list = ul.getElementsByTagName("li");
- 			
- 		for(var i = 0; i < word.length; i++){
- 			if(word[i] === event.key){
- 				list[i].textContent = event.key;
- 			}
- 		}
- 		// for(var i = 0; i < word.length; i++){
- 		// 	if(word[i] === event.key){
 
- 		// 	}	
- 		// }
+ 		if( lettersGuessed.indexOf(event.key) == -1){
+ 			lettersGuessed.push(event.key);
+ 			document.getElementById("guessed").innerHTML = lettersGuessed.join(", ");
+
+ 			tries ++;
+ 			document.getElementById("tries").innerHTML = tries;
+
+ 			var ul = document.getElementById("pattern");
+ 			var list = ul.getElementsByTagName("li");
+ 			
+ 			for(var i = 0; i < currentWord.length; i++){
+ 				if(currentWord[i] === event.key){
+ 					list[i].textContent = event.key;
+ 				}
+ 			}
+ 		} 
+ 		
  	}
  }

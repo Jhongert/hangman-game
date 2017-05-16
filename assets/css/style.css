@@ -1,6 +1,6 @@
 body {
 	font-family: 'Open Sans', sans-serif, arial;
-	
+	font-size: 18px;
 }
 
 .container {
@@ -38,6 +38,29 @@ p {font-weight: bold;
 #play {
 	margin-top: 10px;
 	display: inline-block;
+}
+
+.btn-toolbar {
+	max-width: 380px;
+	margin: 0 auto;
+	display: none;
+}
+
+.btn-toolbar .btn-group {
+	float: none;
+}
+
+.btn-primary {
+	text-shadow: none;
+	font-size: 18px;
+}
+
+.right, .right:hover {
+	color: #62c462;
+}
+
+.wrong, .wrong:hover {
+	color: red;
 }
 
  #playArea{

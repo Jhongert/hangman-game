@@ -67,6 +67,14 @@ var game = {
 	rightAnswer: function(){
 		console.log(this.lettersToGuess);
 		if(this.lettersToGuess == 0){
+			document.getElementById("msg").innerHTML = "Good work, You WON!";
+			document.getElementById("msgContainer").style.backgroundColor = "#62c462";
+ 		 	document.getElementById("msgContainer").style.height = "80px";
+
+ 		 	window.setTimeout(function(){
+ 		 		document.getElementById("msgContainer").style.height = 0;
+ 		 	}, 3000);
+ 		 	
 			this.wins ++;
 			var wins = document.getElementById("wins");
 			wins.innerHTML = this.wins;
@@ -88,6 +96,11 @@ var game = {
 
 document.onkeyup = function(event) {
  	if(!game.started){
+ 		document.getElementById("msgContainer").style.height = 0;
+
+ 		//var t = window.setTimeout(6000);
+
+ 		document.getElementById("playArea").style.display = "block";
  		game.started = true;
  		game.display();
  	} else{

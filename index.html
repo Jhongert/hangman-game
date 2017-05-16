@@ -4,21 +4,52 @@
 		<meta charset="UTF-8">
 		<title>Hangman Game by Jhongert Fuertes</title>
 		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+		<link rel="stylesheet" type="text/css" href="assets/css/slate.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	</head>
 	<body>
 		<div class="container">
-			<p>Press any key to start the game</p>
-			<p>Wins: <span id="wins">0</span></p>
-			<p>Losses: <span id="losses">0</span></p>
-			<p>Lives: <span id="lives">10</span></p>
-			<p>Letters guessed: <span id="guessed"></span></p>
+			<header class="row">
+				<div class="col-sm-12">
+					<h1>Hangman Game</h1>
+				</div>
+			</header>
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="record">
+						<ul class="list-group">
+							<li class="list-group-item">
+							    <span id="wins" class="badge">0</span>
+							    Wins
+							</li>
+							<li class="list-group-item">
+							    <span id="losses" class="badge">0</span>
+							    Losses
+							</li>
+							<li class="list-group-item">
+							    <span id="lives" class="badge">10</span>
+							    Lives
+							</li>
+						</ul>
+						
+					</div>
+					<div>
+					<div id="msgContainer">
+  						<h3 id="msg" class="text-center">Press any key to start the game</h3>
+					</div>
+					
 
-			<div>
-				<ul id="pattern"></ul>
+					<div id="playArea" class="text-center">
+						<p>Letters guessed: <span id="guessed"></span></p>
+						<ul id="pattern"></ul>
+					</div>
+				</div>
+				<div class="col-sm-4">
+				</div>
 			</div>
 		</div>	
 		<script type="text/javascript" src="assets/javascript/gameObj.js"></script>

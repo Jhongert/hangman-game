@@ -1,13 +1,43 @@
 body {
 	font-family: 'Open Sans', sans-serif, arial;
+	
 }
-#patternHolder {
-	letter-spacing: 6px;
+
+.container {
+	max-width: 980px;
 }
+
 
 ul {list-style: none}
 
 ul li {
 	display: inline-block;
 	padding: 0 5px;
+	font-size: 18px;
 }
+
+p {font-weight: bold;
+	font-weight: bold;
+}
+
+#msgContainer {
+	margin-bottom: 15px;
+	border-radius: 4px;
+	background-color: #f89406;
+	color: #fff;
+	height: 80px;
+	overflow: hidden;
+	-webkit-transition: height 1s;
+	transition: height 1s;
+
+}
+
+#msgContainer h3 {
+	padding-top: 5px;
+	padding-bottom: 30px;
+}
+
+
+ #playArea{
+ 	display: none;
+ }

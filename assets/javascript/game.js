@@ -8,51 +8,80 @@ var baseballTeam = ["chicago cubs", "los angeles dodgers", "new york yankess", "
 	"tampa bay rays"];
 
 var started = false;
-var currentWord = "", wins = 0, tries = 0, guessesRemaining = 10;
+var currentWord = "", wins = 0, remaining = 10;
+var lettersToGuess = 0;
 var lettersGuessed = [];
+
+var ul = document.getElementById("pattern");
+var list = ul.getElementsByTagName("li");
 
 
 function displayPattern(team){
 	currentWord = team[Math.floor(Math.random() * team.length)];
-	var ul = document.createElement("ul");
-
-	alert(currentWord);
+	
+	ul.innerHTML = "";
 
 	for(var i = 0; i < currentWord.length; i++){
 		var li = document.createElement("li");
 		if(currentWord[i] != " "){
 			li.innerHTML = "_";
+			lettersToGuess++;
 		} else{
 			li.innerHTML = "-";
 		}
 		ul.appendChild(li);
 	}
-	ul.setAttribute("id", "pattern");
-	document.getElementById("patternHolder").appendChild(ul);
 }
 
- document.onkeyup = function(event) {
+function letterSearch(letter){
+	
+	var found = false;
+	for(var i = 0; i < currentWord.length; i++){
+		if(currentWord[i] === letter){
+			list[i].textContent = letter;
+			lettersToGuess --;
+			found = true;
+		}
+	}
+	return found;
+}
+
+function newGame(){
+	remaining = 10;
+	lettersToGuess = 0;
+	lettersGuessed = [];
+	document.getElementById("remaining").innerHTML = remaining;
+	document.getElementById("guessed").innerHTML = "";
+	displayPattern(baseballTeam);
+
+}
+
+function setWins(){
+	var wins = document.getElementById("wins");
+	wins.innerHTML = parseInt(wins.innerHTML) + 1;
+}
+
+document.onkeyup = function(event) {
  	if(!started){
  		started = true;
  		displayPattern(baseballTeam);
  	} else{
-
  		if( lettersGuessed.indexOf(event.key) == -1){
  			lettersGuessed.push(event.key);
  			document.getElementById("guessed").innerHTML = lettersGuessed.join(", ");
-
- 			tries ++;
- 			document.getElementById("tries").innerHTML = tries;
-
- 			var ul = document.getElementById("pattern");
- 			var list = ul.getElementsByTagName("li");
  			
- 			for(var i = 0; i < currentWord.length; i++){
- 				if(currentWord[i] === event.key){
- 					list[i].textContent = event.key;
+ 			if(!letterSearch(event.key)){
+ 				remaining --;
+ 				document.getElementById("remaining").innerHTML = remaining;
+ 				if(remaining == 0){
+ 					alert("your dead");
+ 				}		
+ 			} else{
+ 				if(lettersToGuess == 0){
+ 					setWins();
+ 					newGame();
  				}
  			}
  		} 
- 		
  	}
  }

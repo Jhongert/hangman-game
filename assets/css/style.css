@@ -1,3 +1,10 @@
+body {
+	font-family: 'Open Sans', sans-serif, arial;
+}
+#patternHolder {
+	letter-spacing: 6px;
+}
+
 ul {list-style: none}
 
 ul li {

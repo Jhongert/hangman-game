@@ -57,6 +57,10 @@ var game = {
 		this.lives --;
 		document.getElementById("lives").innerHTML = this.lives;
 		if(this.lives == 0){
+			
+
+ 		 	this.msg("Sorry, you LOST", "#ee5f5b");
+
 			this.losses ++;
 			var losses = document.getElementById("losses");
 			losses.innerHTML = this.losses;
@@ -67,14 +71,9 @@ var game = {
 	rightAnswer: function(){
 		console.log(this.lettersToGuess);
 		if(this.lettersToGuess == 0){
-			document.getElementById("msg").innerHTML = "Good work, You WON!";
-			document.getElementById("msgContainer").style.backgroundColor = "#62c462";
- 		 	document.getElementById("msgContainer").style.height = "80px";
+			
+ 		 	this.msg("Good work, You WON!", "#62c462");
 
- 		 	window.setTimeout(function(){
- 		 		document.getElementById("msgContainer").style.height = 0;
- 		 	}, 3000);
- 		 	
 			this.wins ++;
 			var wins = document.getElementById("wins");
 			wins.innerHTML = this.wins;
@@ -89,38 +88,53 @@ var game = {
 		document.getElementById("lives").innerHTML = this.lives;
 		document.getElementById("guessed").innerHTML = "";
 		this.display();
-	}
+	},
 
+	msg: function(msg, bgColor){
+		document.getElementById("msg").innerHTML = msg;
+		document.getElementById("msgContainer").style.backgroundColor = bgColor;
+	 	document.getElementById("msgContainer").style.height = "80px";
+
+	 	window.setTimeout(function(){
+	 		document.getElementById("msgContainer").style.height = 0;
+	 	}, 3000);
+	},
+
+	start: function(){
+		if(!this.started){
+ 			document.getElementById("msgContainer").style.height = 0;
+ 			document.getElementById("playArea").style.display = "block";
+ 			window.setTimeout(function(){
+ 				document.getElementById("play").style.display = "none"}, 3000);
+
+ 			this.started = true;
+ 			this.display();
+ 		} else{
+			if(event.keyCode > 64 && event.keyCode < 91){
+				var input = String.fromCharCode(event.keyCode).toLowerCase();
+				if(this.previousGuesses.indexOf(input) == -1){
+					this.previousGuesses.push(input);
+					document.getElementById("guessed").innerHTML = this.previousGuesses.join(", ");
+		
+					if(!this.search(input)){
+						this.wrongAnswer();			
+					} else{
+						this.rightAnswer();
+					}
+				}
+			}
+		}
+	}
 };
 
 
 document.onkeyup = function(event) {
- 	if(!game.started){
- 		document.getElementById("msgContainer").style.height = 0;
+	game.start();	
+};
 
- 		//var t = window.setTimeout(6000);
-
- 		document.getElementById("playArea").style.display = "block";
- 		game.started = true;
- 		game.display();
- 	} else{
-		if(event.keyCode > 64 && event.keyCode < 91){
-			var input = String.fromCharCode(event.keyCode).toLowerCase();
-			if(game.previousGuesses.indexOf(input) == -1){
-				game.previousGuesses.push(input);
-				document.getElementById("guessed").innerHTML = game.previousGuesses.join(", ");
-		
-				if(!game.search(input)){
-					game.wrongAnswer();			
-				} else{
-					game.rightAnswer();
-				}
-			}
-		}
-	}		
- 	
-}
-
+document.getElementById("play").onclick = function(){
+	game.start();
+};
 
 
 

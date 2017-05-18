@@ -8,7 +8,6 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- 		<!-- <link rel="stylesheet" type="text/css" href="assets/css/slate.css"> -->
  		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	</head>
 	<body>
@@ -16,7 +15,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<img class="img-responsive" src="assets/images/hangman.png" >
+						<img class="img-responsive" src="assets/images/logo.png" >
 					</div>
 				</div>
 				<hr>
@@ -26,6 +25,12 @@
 		<div class="container" id="main">
 			<div class="row">
 				<div class="col-md-6">
+					<div id="intro">
+						<img class="img-responsive" src="assets/images/hangman.png">
+						<h3>Welcome to another Hangman game!</h3> 
+						<p>If you are a web developer and want to practice or test your CSS skills, this is a perfect game for you.</p>
+						<a id="play" href="#" class="btn btn-success">Play</a>
+					</div>
 					<div id="game">
 						<div class="record">
 							<ul class="list-group">
@@ -38,15 +43,14 @@
 								    Losses
 								</li>
 								<li class="list-group-item">
-								    <span id="lives" class="badge">10</span>
+								    <span id="lives" class="badge">8</span>
 								    Lives
 								</li>
 							</ul>
 						</div>
 						<div>
 							<div id="msgContainer" class="text-center">
-								<a id="play" href="#" class="btn btn-success">Play</a>
-								<h3 id="msg"></h3>
+								<p id="msg"></p>
 							</div>
 							
 							<div id="playArea" >
@@ -77,6 +81,6 @@
 		<footer> 
 			<p>&#169; Copyright 2017 Jhongert Fuertes</p>
 		</footer>	
-		<script type="text/javascript" src="assets/javascript/gameObj.js"></script>
+		<script type="text/javascript" src="assets/javascript/game.js"></script>
 	</body>
 </html>

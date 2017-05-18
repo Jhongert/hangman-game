@@ -37,13 +37,14 @@ footer p{
 	margin-top: 20px;
 	color: #fff;
 }
+
 #pattern {
 	list-style: none;
 	padding: 0;
 	margin: 10px 0 20px;
 }
 
-ul li {
+#pattern li {
 	display: inline-block;
 	padding: 0 5px;
 	font-size: 18px;
@@ -65,17 +66,15 @@ hr {
 #msgContainer {
 	margin-bottom: 15px;
 	border-radius: 4px;
-	/*background-color: #f89406;*/
 	color: #fff;
-	height: 80px;
 	overflow: hidden;
-	-webkit-transition: height 1s;
-	transition: height 1s;
+	-webkit-transition: height 2s;
+	transition: height 2s;
+	display: none;
 }
 
-#msgContainer h3 {
-	padding-bottom: 30px;
-	/*display: none;*/
+#msgContainer p {
+	padding: 10px 0;
 }
 
 #play {
@@ -111,13 +110,13 @@ hr {
 	opacity: 1 !important;
 	background-image: none;
 }
-#game, #sidebar{
+
+#game {
+	display: none;
+}
+
+#game, #sidebar, #intro{
 	background-color: #eee;
 	padding: 20px 10px;
 	margin-bottom: 20px;
 }
-
-
- #playArea{
- 	display: none;
- }

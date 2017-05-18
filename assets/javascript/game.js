@@ -42,7 +42,7 @@ var game = {
 	},
 
 
-	//This function check if the letter typed is inside the current word and return true or false
+	//This function check if the letter typed is inside the current word
 	search: function (char){
 		if(this.previousGuesses.indexOf(char) == -1){
 			this.previousGuesses.push(char);
@@ -68,7 +68,6 @@ var game = {
 				this.wrongAnswer();
 				btn.className += " wrong";
 			}
-			return found;
 		}
 	},
 
@@ -148,7 +147,6 @@ var game = {
 
 }; //end of object
 
-
 document.onkeyup = function(event) {
 	if(!game.started){
 		game.start();
@@ -167,9 +165,8 @@ document.getElementById("play").onclick = function(){
 var btns = document.getElementById("keys");
 btns.addEventListener("click",function(e){
 	if (e.target !== e.currentTarget){
-		 var input = e.target.id;
-		 this.onclick = null;
-		
+		var input = e.target.id;
+		this.onclick = null;
 		game.search(input);
 	}
 	e.stopPropagation();

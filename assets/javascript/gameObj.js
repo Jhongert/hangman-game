@@ -3,7 +3,7 @@ var game = {
 	currentWord: "",
 	wins: 0, 
 	losses: 0,
-	lives: 10,
+	lives: 8,
 	previousGuesses: [],
 	lettersToGuess: 0,
 	words: ["background", "background-attachment", "background-color", "background-image",
@@ -19,22 +19,21 @@ var game = {
 	display: function(){
 		
 		//select a randon word from words array and store the value on currentWord variable
-		this.currentWord = this.words[Math.floor(Math.random() * this.words.length)];
+		 this.currentWord = this.words[Math.floor(Math.random() * this.words.length)];
 		
-		var char;
-		var list = "";
+		var ul = document.getElementById("pattern");
+		ul.innerHTML = "";
 
 		for(var i = 0; i < this.currentWord.length; i++){
-			char = "_";
+			var li = document.createElement("li");
 			if(this.currentWord[i] != "-"){
-				this.lettersToGuess ++;
-			}else{
-				char = "-";
+				li.innerHTML = "_";
+				this.lettersToGuess++;
+			} else{
+				li.innerHTML = "-";
 			}
-			list += "<li>" + char + "</li>";
+			ul.appendChild(li);
 		}
-		var ul = document.getElementById("pattern");
-		ul.innerHTML = list;
 		this.createBtn();
 	},
 
@@ -66,10 +65,7 @@ var game = {
 		this.lives --;
 		document.getElementById("lives").innerHTML = this.lives;
 		if(this.lives == 0){
-			
-
  		 	this.msg("Sorry, you LOST", "#ee5f5b");
-
 			this.losses ++;
 			var losses = document.getElementById("losses");
 			losses.innerHTML = this.losses;
@@ -80,9 +76,7 @@ var game = {
 	rightAnswer: function(){
 		console.log(this.lettersToGuess);
 		if(this.lettersToGuess == 0){
-			
  		 	this.msg("Good work, You WON!", "#62c462");
-
 			this.wins ++;
 			var wins = document.getElementById("wins");
 			wins.innerHTML = this.wins;
@@ -91,14 +85,12 @@ var game = {
 	},
 
 	newGame: function (){
-		this.lives = 10;
+		this.lives = 8;
 		this.lettersToGuess = 0;
 		this.previousGuesses = [];
-
 		this.createBtn();
-
 		document.getElementById("lives").innerHTML = this.lives;
-		document.getElementById("guessed").innerHTML = "";
+		//document.getElementById("guessed").innerHTML = "";
 		this.display();
 	},
 
@@ -133,16 +125,14 @@ var game = {
 		for(var key in letters){
 			el += '<div class="btn-group">';
 			for(var i = 0; i < letters[key].length; i++){
-				//el += '<a href="#" id="' + letters[key][i] + '" class="btn btn-primary">' + 
-				//letters[key][i] + '</a>'
-				 el += '<span id="' + letters[key][i] + '" class="btn btn-primary">' + 
+				 el += '<span id="' + letters[key][i] + '" class="btn btn-default">' + 
 				 letters[key][i] + '</span>'
 			}
 			el += '</div>'
 		}
 		document.getElementById("keys").innerHTML = el;
 	}
-};
+}; //end of object
 
 
 document.onkeyup = function(event) {
@@ -153,7 +143,7 @@ document.onkeyup = function(event) {
 			var input = String.fromCharCode(event.keyCode).toLowerCase();
 			if(game.previousGuesses.indexOf(input) == -1){
 				game.previousGuesses.push(input);
-				document.getElementById("guessed").innerHTML = game.previousGuesses.join(", ");
+				//document.getElementById("guessed").innerHTML = game.previousGuesses.join(", ");
 
 				if(!game.search(input)){
 					game.wrongAnswer();			
@@ -172,14 +162,12 @@ document.getElementById("play").onclick = function(){
 var btns = document.getElementById("keys");
 btns.addEventListener("click",function(e){
 	if (e.target !== e.currentTarget){
-
 		 var input = e.target.id;
 		 this.onclick = null;
 		
-		
 		if(game.previousGuesses.indexOf(input) == -1){
 				game.previousGuesses.push(input);
-				document.getElementById("guessed").innerHTML = game.previousGuesses.join(", ");
+				//document.getElementById("guessed").innerHTML = game.previousGuesses.join(", ");
 
 				if(!game.search(input)){
 					game.wrongAnswer();			
@@ -190,6 +178,3 @@ btns.addEventListener("click",function(e){
 	}
 	e.stopPropagation();
 },false);
-
-
-

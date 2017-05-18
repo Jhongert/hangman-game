@@ -1,14 +1,47 @@
-body {
-	font-family: 'Open Sans', sans-serif, arial;
-	font-size: 18px;
+* {
+	box-sizing: border-box;;
 }
 
+html{
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif, arial;
+	font-size: 16px;
+	color: #666;
+	margin:0 0 60px; 
+}
+
+header {
+	padding: 20px 0 5px;
+}
 .container {
 	max-width: 980px;
 }
 
+/*footer*/
+footer {
+	text-align: center;
+	height: 60px;
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #cd936e;
+    font-size: 14px;
+}
 
-ul {list-style: none}
+footer p{
+	margin-top: 20px;
+	color: #fff;
+}
+#pattern {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0 20px;
+}
 
 ul li {
 	display: inline-block;
@@ -20,12 +53,21 @@ p {font-weight: bold;
 	font-weight: bold;
 }
 
+h2 {
+	color: #cd936e;
+	margin-top: 10px;
+}
+
+hr {
+	border-color: #ddd;
+}
+
 #msgContainer {
 	margin-bottom: 15px;
 	border-radius: 4px;
-	background-color: #f89406;
+	/*background-color: #f89406;*/
 	color: #fff;
-	height: 110px;
+	height: 80px;
 	overflow: hidden;
 	-webkit-transition: height 1s;
 	transition: height 1s;
@@ -33,11 +75,13 @@ p {font-weight: bold;
 
 #msgContainer h3 {
 	padding-bottom: 30px;
+	/*display: none;*/
 }
 
 #play {
 	margin-top: 10px;
 	display: inline-block;
+	font-size: 20px;
 }
 
 .btn-toolbar {
@@ -50,18 +94,29 @@ p {font-weight: bold;
 	float: none;
 }
 
-.btn-primary {
+.btn {
 	text-shadow: none;
-	font-size: 18px;
+	font-size: 16px;
 }
 
+
 .right, .right:hover {
-	color: #62c462;
+	background-color: #62c462 !important;
+	opacity: 1 !important;
+	background-image: none;
 }
 
 .wrong, .wrong:hover {
-	color: red;
+	background-color: #fb4843 !important;
+	opacity: 1 !important;
+	background-image: none;
 }
+#game, #sidebar{
+	background-color: #eee;
+	padding: 20px 10px;
+	margin-bottom: 20px;
+}
+
 
  #playArea{
  	display: none;

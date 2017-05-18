@@ -8,57 +8,75 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/slate.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+ 		<!-- <link rel="stylesheet" type="text/css" href="assets/css/slate.css"> -->
+ 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	</head>
 	<body>
-		<div class="container">
-			<header class="row">
-				<div class="col-sm-12">
-					<h1>Hangman Game</h1>
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<img class="img-responsive" src="assets/images/hangman.png" >
+					</div>
 				</div>
-			</header>
+				<hr>
+			</div>
+		</header>
+
+		<div class="container" id="main">
 			<div class="row">
-				<div class="col-sm-8">
-					<div class="record">
-						<ul class="list-group">
-							<li class="list-group-item">
-							    <span id="wins" class="badge">0</span>
-							    Wins
-							</li>
-							<li class="list-group-item">
-							    <span id="losses" class="badge">0</span>
-							    Losses
-							</li>
-							<li class="list-group-item">
-							    <span id="lives" class="badge">10</span>
-							    Lives
-							</li>
-						</ul>
-						
+				<div class="col-md-6">
+					<div id="game">
+						<div class="record">
+							<ul class="list-group">
+								<li class="list-group-item">
+								    <span id="wins" class="badge">0</span>
+								    Wins
+								</li>
+								<li class="list-group-item">
+								    <span id="losses" class="badge">0</span>
+								    Losses
+								</li>
+								<li class="list-group-item">
+								    <span id="lives" class="badge">10</span>
+								    Lives
+								</li>
+							</ul>
+						</div>
+						<div>
+							<div id="msgContainer" class="text-center">
+								<a id="play" href="#" class="btn btn-success">Play</a>
+								<h3 id="msg"></h3>
+							</div>
+							
+							<div id="playArea" >
+								<p>Category: CSS<p>
+								<!-- <p>Letters guessed: <span id="guessed"></span></p> -->
+								<ul id="pattern" class="text-center"></ul>
+							</div>
+							<div id="keys" class="btn-toolbar text-center">	 
+							</div>
+						</div>
 					</div>
-					<div>
-
-					<div id="msgContainer" class="text-center">
-						<a id="play" href="#" class="btn btn-success">Play</a>
-  						<h3 id="msg" >Or press any key to start</h3>
-					</div>
-					
-
-					<div id="playArea" class="text-center">
-						<p>Letters guessed: <span id="guessed"></span></p>
-						<ul id="pattern"></ul>
-					</div>
-
-					<div id="keys" class="btn-toolbar text-center">
-						 
-					</div>
-
 				</div>
-				<div class="col-sm-4">
+				<div class="col-md-6">
+					<div id="sidebar">
+						<h2 class="text-center">How to play</h2>
+						<hr>
+						<p>Press play or any key to start the game. Once the game starts, the computer chooses a random word that you have to guess it by suggesting letters. The word to guess is represented by a row of underscores, representing each letter of the word.</p>
+
+						<p>To guess a letter you can click the button that represnt the letter or you can press the key on your keyboard.</p>
+
+						<p>If you suggest a letter which occurs in the word, the letter appears in all its correct positions and the button that represent that letter change to green. If the suggested letter does not occur in the word, you loss a live and the button turn red.</p>
+						<p>When you loss all the lives, the game is over and you can try again.</p>
+						<p></p>
+					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
+		<footer> 
+			<p>&#169; Copyright 2017 Jhongert Fuertes</p>
+		</footer>	
 		<script type="text/javascript" src="assets/javascript/gameObj.js"></script>
 	</body>
 </html>

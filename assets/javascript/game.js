@@ -111,7 +111,7 @@ var game = {
 		this.lives = 8;
 		this.lettersToGuess = 0;
 		this.previousGuesses = [];
-		this.createBtn();
+		//this.createBtn();
 		document.getElementById("lives").innerHTML = this.lives;
 		this.display();
 	},
@@ -141,22 +141,34 @@ var game = {
 	},
 
 
+	//create buttons for each letter
 	createBtn: function() {
-		var el = "";
 
+		//select the container for the buttons and clean the content
+		var keys = document.getElementById("keys");
+		keys.innerHTML = "";
+
+		//object of arrays for three rows of letters
 		var letters = {row1: ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
-					   row2: ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
-				       row3: ["z", "x", "c", "v", "b", "n", "m"]};
+		  			  row2: ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
+		  		      row3: ["z", "x", "c", "v", "b", "n", "m"]};
 
+		//loop the object
 		for(var key in letters){
-			el += '<div class="btn-group">';
-			for(var i = 0; i < letters[key].length; i++){
-				 el += '<span id="' + letters[key][i] + '" class="btn btn-default">' + 
-				 letters[key][i] + '</span>'
-			}
-			el += '</div>'
+		 	var div = document.createElement("div");
+		 	div.setAttribute("class", "btn-group");
+			
+			//loop each the arrey inside the object
+		  	for(var i = 0; i < letters[key].length; i++){
+		  		//create a span element, set properties and add it to div element
+		  		var span = document.createElement("span");
+		  		span.setAttribute("id", letters[key][i]);
+		  		span.setAttribute("class", "btn btn-default");
+		  		span.textContent = letters[key][i];
+		  		div.appendChild(span);
+		 	}
+		 	keys.appendChild(div); //add group of buttons to container
 		}
-		document.getElementById("keys").innerHTML = el;
 	},
 
 

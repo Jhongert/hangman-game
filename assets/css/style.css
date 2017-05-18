@@ -1,4 +1,4 @@
-* {
+s* {
 	box-sizing: border-box;;
 }
 
@@ -86,7 +86,7 @@ hr {
 .btn-toolbar {
 	max-width: 380px;
 	margin: 0 auto;
-	display: none;
+	/*display: none;*/
 }
 
 .btn-toolbar .btn-group {

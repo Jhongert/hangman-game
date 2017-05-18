@@ -20,14 +20,17 @@ var game = {
 	"float", "font", "height", "display", "direction", "clear", "bottom", "clip", "border"],
 
 
+	//Display on screen the random word replacing each letter with "_"
 	display: function(){
 		
 		//select a randon word from words array and store the value on currentWord variable
-		 this.currentWord = this.words[Math.floor(Math.random() * this.words.length)];
+		this.currentWord = this.words[Math.floor(Math.random() * this.words.length)];
 		
+		//select ul(id=pattern from html) and delete all <li> 
 		var ul = document.getElementById("pattern");
 		ul.innerHTML = "";
 
+		//create the list 
 		for(var i = 0; i < this.currentWord.length; i++){
 			var li = document.createElement("li");
 			if(this.currentWord[i] != "-"){
@@ -38,29 +41,33 @@ var game = {
 			}
 			ul.appendChild(li);
 		}
-		this.createBtn();
+		this.createBtn(); //add buttons
 	},
 
 
-	//This function check if the letter typed is inside the current word
-	search: function (char){
-		if(this.previousGuesses.indexOf(char) == -1){
-			this.previousGuesses.push(char);
+	//This function check if the chosen letter is inside the current word
+	search: function (letter){
+		//if the chosen letter is not on previousGuesses array
+		if(this.previousGuesses.indexOf(letter) == -1){
+			this.previousGuesses.push(letter); //insert new letter in array
 			
 			var ul = document.getElementById("pattern");
-			var list = ul.getElementsByTagName("li");
+			var list = ul.getElementsByTagName("li"); //select all <li> from ul pattern
 			var found = false;
 			for(var i = 0; i < this.currentWord.length; i++){
-				if(this.currentWord[i] === char){
-					list[i].textContent = char;
+				if(this.currentWord[i] === letter){
+					list[i].textContent = letter; //replace "_" in li with new letter
 					this.lettersToGuess --;
 					found = true;
 				}
 			}
 
-			var btn = document.getElementById(char);
+			//select the button with the letter and disable it
+			var btn = document.getElementById(letter);
 			btn.className += " disabled";
 
+			//if the letter is in the word call function rightAnswer else call wrongAnswer
+			//and asign a class to the button
 			if(found){
 				this.rightAnswer();
 				btn.className += " right";
@@ -71,9 +78,13 @@ var game = {
 		}
 	},
 
+	//when the chosen letter is not inside the word
 	wrongAnswer: function(){
+		//update lives
 		this.lives --;
 		document.getElementById("lives").innerHTML = this.lives;
+
+		//if lives = 0. show a message with the right answer, update losses and start a new game
 		if(this.lives == 0){
  		 	this.msg('You LOST. The word was "' +  this.currentWord +'"', "#ee5f5b");
 			this.losses ++;
@@ -83,8 +94,9 @@ var game = {
 		}
 	},
 
+	//when the chosen letter is inside the word
 	rightAnswer: function(){
-		console.log(this.lettersToGuess);
+		//if not more letters to guess, show a message, update wins and start a new game
 		if(this.lettersToGuess == 0){
  		 	this.msg("Good work, You WON!", "#62c462");
 			this.wins ++;
@@ -94,6 +106,7 @@ var game = {
 		}
 	},
 
+	//reset variables, recreate buttons and call display function 
 	newGame: function (){
 		this.lives = 8;
 		this.lettersToGuess = 0;
@@ -103,6 +116,7 @@ var game = {
 		this.display();
 	},
 
+	//show a message with a different background color when user win or loss
 	msg: function(msg, bgColor){
 		document.getElementById("msg").innerHTML = msg;
 		var msgC = document.getElementById("msgContainer");
@@ -110,21 +124,22 @@ var game = {
 		msgC.style.display = "block";
 	 	msgC.style.height = "64px";
 
+	 	//hidde the message after 3 sec
 	 	window.setTimeout(function(){
 	 		msgC.style.height = 0;
 	 	}, 3000);
 	},
 
+	//when user press play or press any key to start the game
 	start: function(){
+		//hidde the intro div and show the game div
 		document.getElementById("intro").style.display = "none";
 		document.getElementById("game").style.display = "block";
-		document.getElementById("keys").style.display = "block";
-		window.setTimeout(function(){
-			document.getElementById("play").style.display = "none"}, 3000);
 
 		this.started = true;
 		this.display();
 	},
+
 
 	createBtn: function() {
 		var el = "";
@@ -147,21 +162,25 @@ var game = {
 
 }; //end of object
 
+//key press event
 document.onkeyup = function(event) {
+	//if the user press a key to start the game call start function
 	if(!game.started){
 		game.start();
-	} else{
-		if(event.keyCode > 64 && event.keyCode < 91){
+	} else{ //if the user press a key to play
+		if(event.keyCode > 64 && event.keyCode < 91){ //if key is a-z or A-Z
 			var input = String.fromCharCode(event.keyCode).toLowerCase();
 			game.search(input);
 		}
 	}
 };
 
+//button play click event
 document.getElementById("play").onclick = function(){
 	game.start();
 };
 
+//add click event to buttons keyboard
 var btns = document.getElementById("keys");
 btns.addEventListener("click",function(e){
 	if (e.target !== e.currentTarget){

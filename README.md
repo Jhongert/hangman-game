@@ -3,7 +3,7 @@ A clasic Hangman Game that run in the browser and feature dynamically updated HT
 
 ![Playing Hangman](https://github.com/Jhongert/hangman-game/blob/master/assets/images/hangmanPlaying.jpeg?raw=true)
 
-## Built with
+## Developed with
 - HTML5
 - CSS3
 - Javascript

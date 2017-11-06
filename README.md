@@ -1,4 +1,4 @@
-# Hangman-game
+# Hangman Game
 A clasic Hangman Game that run in the browser and feature dynamically updated HTML powered by JavaScript code.
 
 ## Build with

@@ -31,30 +31,37 @@
 						<p>If you are a web developer and want to practice or test your CSS skills, this is a perfect game for you. Start guessing words and we'll see how many times you hang up.</p>
 						<a id="play" href="#" class="btn btn-success">Play</a>
 					</div>
+					
 					<div id="game">
-						<div class="record">
+						<div id="hangman">
 							<ul class="list-group">
 								<li class="list-group-item">
-								    <span id="wins" class="badge">0</span>
+								    <span id="wins" class="badge"> 0</span>
 								    Wins
 								</li>
 								<li class="list-group-item">
-								    <span id="losses" class="badge">0</span>
+								    <span id="losses" class="badge"> 0</span>
 								    Losses
 								</li>
 								<li class="list-group-item">
-								    <span id="lives" class="badge">8</span>
+								    <span id="lives" class="badge"> 6</span>
 								    Lives
 								</li>
 							</ul>
 						</div>
+						
 						<div>
 							<div id="msgContainer" class="text-center">
 								<p id="msg"></p>
 							</div>
 							
 							<div id="playArea" >
-								<p>Category: CSS<p>
+								<label>Theme: </label>
+								<select>
+									<option value="0">Star Wars characters</option>
+									<option value="1">Minecraft</option>
+									<option value="2">Super Heros</option>
+								</select>
 								<ul id="pattern" class="text-center"></ul>
 							</div>
 							<div id="keys" class="btn-toolbar text-center">	 
@@ -66,13 +73,12 @@
 					<div id="sidebar">
 						<h2 class="text-center">How to play</h2>
 						<hr>
-						<p>Press play or any key to start the game. Once the game starts, the computer chooses a random word that you have to guess it by choosing letters. The word to guess is represented by a row of underscores, representing each letter of the word.</p>
+						<p>Press play or any key to start the game. Once the game starts, base on the selected theme, the computer chooses a random word that you have to guess it by choosing letters. The word to guess is represented by a row of underscores, representing each letter of the word.</p>
 
-						<p>To guess a letter you can click the button that represnt the letter or you can press the key on your keyboard.</p>
+						<p>To guess a letter you can click the button that represent the letter or you can press the key on your keyboard.</p>
 
-						<p>If you choose a letter which occurs in the word, the letter appears in all its correct positions and the button that represent that letter change to green. If the chosen a letter does not occur in the word, you loss a live and the button turn red.</p>
+						<p>If you choose a letter which occurs in the word, the letter appears in all its correct positions and the button that represent that letter change to green. If the chosen letter does not occur in the word, you loss a live and the button turn red.</p>
 						<p>When you loss all the lives, the game is over and you can try again.</p>
-						<p></p>
 					</div>
 				</div>
 			</div>

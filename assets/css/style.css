@@ -9,7 +9,7 @@ html{
 
 body {
 	font-family: 'Open Sans', sans-serif, arial;
-	font-size: 16px;
+	font-size: 14px;
 	color: #666;
 	margin:0 0 60px; 
 }
@@ -119,4 +119,28 @@ hr {
 	background-color: #eee;
 	padding: 20px 10px;
 	margin-bottom: 20px;
+}
+
+.list-group {
+	width: 100px;
+    float: right;
+}
+
+.list-group li {
+	font-size: 12px;
+	padding: 5px 15px !important;
+}
+
+.list-group-item>.badge {
+    margin-left: 4px;
+    line-height: .8;
+}
+
+#hangman {
+	height: 200px;
+	background-image: url('../images/hangman-0.jpg');
+	background-repeat: no-repeat;
+	background-color: white;
+    margin-bottom: 10px;
+    background-size: contain;
 }

@@ -218,7 +218,7 @@ document.getElementById("play").onclick = function(){
 	game.start();
 };
 
-// Select onchange event
+// When user select a different theme, start a new game
 document.getElementsByTagName("select")[0].onchange= function(){
 	game.newGame();
 }

@@ -25,8 +25,8 @@ var game = {
 			"Polished Diorite", "Prismarine", "Dark Prismarine", "Sea Lantern", "Coarse Dirt", "Shears", "Lighter",
 			"Slime Block", "Moss Stone", "Axe", "Pickaxe", "Shovel", "Bucket", "Compass", "Clock", "Fishing Rod"],
 		["Superman", "Batman", "Spider-man", "Thor", "Mr Fantastic", "Wonder-woman", "Captain america",
-			"Invisible Woman", "Human Torch", "Flash", "Green Lanter", "Silver Surfer", "Wolverine", "Iron Man",
-			"Supergirl", "Superboy", "Aquaman", "Plastic Man", "Green Arrow", "Cyborg", "Hercules",
+			"Invisible Woman", "Human Torch", "The Flash", "Green Lanter", "Silver Surfer", "Wolverine", "Iron Man",
+			"Supergirl", "Superboy", "Aquaman", "Plastic Man", "Green Arrow", "Cyborg",
 			"Black Panther", "Beast Boy", "Starfire", "Red Tornado", "Professor X", "Doctor Strange",
 			"Hawkeye", "Wasp", "Black widow", "Captain Boomerang"]
 	],

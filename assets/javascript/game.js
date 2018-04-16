@@ -104,7 +104,7 @@ var game = {
 		// Increment number of wrong answers
 		this.wrongCount ++;
 		// Change the image
-		var img = 'hangman-' + this.wrongCount + '.jpg';
+		var img = 'img-' + this.wrongCount + '.png';
 		document.getElementById('hangman').style.backgroundImage = 'url("assets/images/' + img + '")';
 
 		//if lives = 0. show a message with the right answer, update losses and start a new game

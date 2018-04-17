@@ -13,6 +13,9 @@ body {
 	color: #b9b5b5;
 	margin:0 0 60px; 
 	background: url("../images/bg.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
     background-size: cover;
 }
 

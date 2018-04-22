@@ -151,7 +151,7 @@ var game = {
 	 	//hidde the message after 3 sec
 	 	window.setTimeout(function(){
 	 		msgC.style.height = 0;
-	 		document.getElementById('hangman').style.backgroundImage = 'url("assets/images/hangman-0.jpg")';
+	 		document.getElementById('hangman').style.backgroundImage = 'url("assets/images/hangman.png")';
 	 		game.newGame();
 	 	}, 3000);
 	},

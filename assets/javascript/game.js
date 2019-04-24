@@ -138,6 +138,7 @@ var game = {
 		this.play = true,
 		document.getElementById("lives").innerHTML = this.lives;
 		this.display();
+		document.getElementById('hangman').style.backgroundImage = 'url("assets/images/hangman.png")';
 	},
 
 	//show a message with a different background color when user win or loss
@@ -151,7 +152,7 @@ var game = {
 	 	//hidde the message after 3 sec
 	 	window.setTimeout(function(){
 	 		msgC.style.height = 0;
-	 		document.getElementById('hangman').style.backgroundImage = 'url("assets/images/hangman.png")';
+	 		//document.getElementById('hangman').style.backgroundImage = 'url("assets/images/hangman.png")';
 	 		game.newGame();
 	 	}, 3000);
 	},
